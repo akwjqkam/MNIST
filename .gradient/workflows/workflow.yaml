@@ -5,14 +5,14 @@
 jobs:
   CloneRepo:
     resources:
-      instance-type: C5
+      instance-type: C7
     outputs:
       repo:
         type: volume
     uses: git-checkout@v1
     with:
       url: context.event.github.url
-  HelloWorld:
+  Kuli1:
     resources:
       instance-type: C7
     needs:
