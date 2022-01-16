@@ -1,53 +1,19 @@
-import time
+from flask import Flask
+from flask_restful import Resource, Api, reqparse
+import os
 
-print ('Mulai Kerja!')
-time.sleep(3600)
-print ('1 Jam Telah Lewat')
-time.sleep(3600)
-print ('2 Jam Telah Lewat')
-time.sleep(3600)
-print ('3 Jam Telah Lewat')
-time.sleep(3600)
-print ('4 Jam Telah Lewat')
-time.sleep(3600)
-print ('5 Jam Telah Lewat')
-time.sleep(3600)
-print ('6 Jam Telah Lewat')
-time.sleep(3600)
-print ('7 Jam Telah Lewat')
-time.sleep(3600)
-print ('8 Jam Telah Lewat')
-time.sleep(3600)
-print ('9 Jam Telah Lewat')
-time.sleep(3600)
-print ('10 Jam Telah Lewat')
-time.sleep(3600)
-print ('11 Jam Telah Lewat')
-time.sleep(3600)
-print ('12 Jam Telah Lewat')
-time.sleep(3600)
-print ('13 Jam Telah Lewat')
-time.sleep(3600)
-print ('14 Jam Telah Lewat')
-time.sleep(3600)
-print ('15 Jam Telah Lewat')
-time.sleep(3600)
-print ('16 Jam Telah Lewat')
-time.sleep(3600)
-print ('17 Jam Telah Lewat')
-time.sleep(3600)
-print ('18 Jam Telah Lewat')
-time.sleep(3600)
-print ('19 Jam Telah Lewat')
-time.sleep(3600)
-print ('20 Jam Telah Lewat')
-time.sleep(3600)
-print ('21 Jam Telah Lewat')
-time.sleep(3600)
-print ('22 Jam Telah Lewat')
-time.sleep(3600)
-print ('23 Jam Telah Lewat')
-time.sleep(3600)
-print ('24 Jam Telah Lewat')
-time.sleep(3600)
-print ('Nanti Lagi Ya!')
+parser = reqparse.RequestParser()
+parser.add_argument('key')
+
+app = Flask(__name__)
+api = Api(app)
+
+class MyResource(Resource):
+    def get(self):
+        args = parser.parse_args()
+        return {'key': args['key']}
+
+api.add_resource(MyResource, '/api')
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0')
