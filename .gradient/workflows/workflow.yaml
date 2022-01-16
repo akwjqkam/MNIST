@@ -14,12 +14,12 @@ jobs:
       url: context.event.github.url
   HelloWorld:
     resources:
-      instance-type: C5
+      instance-type: C7
     needs:
       - CloneRepo
     inputs:
       repo: CloneRepo.outputs.repo
     uses: script@v1
     with:
-      script: lscpu
+      script: pip install flask flask_restful && python /inputs/repo/hello.py
       image: tensorflow/tensorflow:1.14.0-py3
